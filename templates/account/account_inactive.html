@@ -1,0 +1,13 @@
+<!-- Страница с сообщением, что аккаунт не активен -->
+{% extends "users/users_main.html" %}
+
+
+{% load i18n %}
+
+{% block title %}{% trans "Аккаунт не активен" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Аккаунт не активен" %}</h1>
+
+<p>{% trans "Этот аккаунт не активен." %}</p>
+{% endblock %}

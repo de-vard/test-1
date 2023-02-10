@@ -1,0 +1,12 @@
+<h1>Список сылок на курсы</h1>
+
+
+<nav><!-- Навгация -->
+    <ul>
+        {% block nav %}
+            <li><a href="{% url 'courses:all' %}">Все курсы</a></li>
+            <li><a href="{% url 'courses:follower' %}">Курсы которые я учу</a></li>
+            <li><a href="{% url 'courses:create' %}">Создать свой курс</a></li>
+        {% endblock %}
+    </ul>
+</nav>

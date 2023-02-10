@@ -1,0 +1,17 @@
+<!-- Страница регистрации -->
+{% extends "_base.html" %}
+{% load static %}
+
+
+{% block title %}Регистрация{% endblock title %}
+
+{% block content %}
+  <h2>Регистрация</h2>
+  <form class='signup_form'method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <br><br>
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+
+{% endblock content %}

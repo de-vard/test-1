@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- Подключаем стили -->
+    <title>{% block title %}Главная{% endblock title %}</title> <!-- Отображается в заголовке сайта --><!-- <h1></h1> Не обходи на кажой страници ()для поиска -->
+    <meta name="description" content="Изучйте слова с легкостью "> <!-- для описания саайта в браузере -->
+
+</head>
+<body>
+
+<nav><!-- Навгация -->
+    <ul>
+        {% block nav %}
+        {% if user.is_authenticated %}
+            <li><a href="#">Иконка приложения</a></li>
+            <li><a href="{% url 'courses:main' %}">Курсы</a></li>
+            <li><a href="#">Поиск</a></li>
+            <li><a href="#">Пользователь</a></li>
+        {% else %}
+            <li><a href="{% url 'account_login' %}">Вход</a></li>
+            <li><a href="{% url 'account_signup' %}">Регистация</a></li>
+        {% endif %}
+        {% endblock %}
+    </ul>
+</nav>
+
+{% block content %}
+
+{% endblock content %}
+
+<!-- Блок для приложения django-allauth выводит вопрос об удалении email-->
+    {% block extra_body %}
+    {% endblock %}
+<!-- ********************************** -->
+
+    <footer> <!-- Подвал-->
+        <nan></nan>
+    </footer>
+
+</body>
+</html>

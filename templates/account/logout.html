@@ -1,0 +1,15 @@
+<!-- Страница выхода -->
+
+{% extends "_base.html" %}
+{% block title %}Log Out{% endblock %}
+
+{% block content %}
+  <h1>Выйти </h1>
+  <p>Вы действительно хотите выйти?</p>
+  <form class='signup_form' method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <button class="btn btn-danger" type="submit">Выйти</button>
+  </form>
+{% endblock content %}

@@ -1,0 +1,27 @@
+<h1>{{ title }}</h1>
+
+<h2>Сортировка по:</h2>
+
+
+<form action="{% url 'courses:all' %}" method="POST">
+    {% csrf_token %}
+    {% for sort_rus_name, sort_eng_name  in sort_positions.items  %}
+        <input type='checkbox' name="filtration" value="{{ sort_eng_name  }}">
+         <span>{{ sort_rus_name }}</span>
+    {% endfor %}
+    <button type="submit">Сортировать</button>
+</form>
+
+
+{% for course in all_object_courses %}
+    <p>
+        <li>Название:{{ course }}</li>
+        <li>Рейтинг:{{ course.rating }}</li>
+        <li>Сложность:{{ course.get_level_display }}</li>
+        <li>Автор:{{ course.author }}</li>
+        <li>Дата создания:{{course.created}}</li>
+    </p>
+    <hr>
+{% endfor %}
+
+
